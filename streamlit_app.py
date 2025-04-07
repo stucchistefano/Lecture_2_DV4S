@@ -141,15 +141,15 @@ st.subheader("Map Chart") # Without the need of have a token, because already in
 st.map(df4)
 
 
-# Training
-st.title("Training - At Home\n")
+# Assignment 3
+st.title("Training/Assignment - At Home\n")
 
 # Generate Dataset of 5 Football Players
 p = ["Mateo Retegui", "Lautaro Martinez", "Romelu Lukaku", "Ademola Lookman", "Marcus Thuram"]
 g = np.random.randint(10, 30, size=5) # Random integer for 5 players
 a = np.random.randint(10, 40, size=5)
 m = np.random.randint(10, 38, size=5)
-avg_d = np.random.rand(5)*10 # 5 values as players of runned distance
+avg_d = np.random.rand(5)*20 # 5 values as players of runned distance
 p_acc = np.random.rand(5)*100 # 5 percentual values of pass accuracy
 
 d = {
@@ -196,6 +196,11 @@ index_selected_player = df_train["Player Name"] == selected_player # So extracti
 player_stats = df_train[index_selected_player]
 # Plot/Writing of the Stats of the selected player
 st.write(player_stats.set_index("Player Name").T) # This command allows to report the stats on rows, no more on columns, as done in the after plotted dataframe
+
 # Plot of its stats as a dataframe
 st.write("Selected Player's Stats DataFrame")
 st.dataframe(player_stats)
+
+# Plot in a bar chart of all the stats
+st.write("Selected Player Stats")
+st.bar_chart(player_stats.T)
