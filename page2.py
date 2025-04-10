@@ -80,3 +80,53 @@ with st.expander("Table", expanded=False):
     st.subheader("Table of My Data")
     st.table(data)
 # By clicking on the "name" of the expander, we could close or open the expander (with its related info) when we want (like the users)
+
+
+# Exercise in class
+st.title("Exercise/Training in class")
+# Simulated data
+team_name = "Atlanta United"
+seasons = ["2020-21", "2021-22", "2022-23", "2023-24"]
+wins = [20, 22, 18, 25]
+losses = [10, 8, 12, 5]
+goals_scored = [60, 65, 55, 70]
+top_scorer = {"Messi":10, "Pelè":15, "Retegui":20}
+
+st.subheader("Data Visualisation for Sport - Exercise")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.header("Wins in different seasons")
+    Win_data = {"S":seasons, "W": wins}
+    st.bar_chart(Win_data, x="S", y="W")
+with col2:
+    st.header("Losses in different seasons")
+    Los_data= {"S":seasons, "L": losses}
+    st.bar_chart(Los_data, x="S", y="L")
+
+tab1, tab2 = st.tabs(["Goals Scored", "Top Scorers"])
+tab1.header("Goals Scored")
+goal_data ={"S":seasons, "G":goals_scored}
+tab1.area_chart(goal_data, x="S", y="G", color="#FFFFFF")
+tab2.header("Top Scorers")
+tab2.bar_chart(top_scorer)
+tab2.image("https://assets.goal.com/images/v3/blt10b807851956e767/retegui%20lecce%20atalanta%20goal.jpg")
+
+data ={
+    "Season": seasons,
+    "Goals": goals_scored,
+    "Wins": wins,
+    "Losses": losses,
+    #"Top Scorers": top_scorer
+}
+df= pd.DataFrame(data)
+
+with st.expander("Wins & Goals", expanded=False):
+    st.subheader("Wins & Goals Relation")
+    wins_goals_data = df[["Season", "Wins", "Goals"]]
+    st.line_chart(wins_goals_data.set_index("Season"), color=("#008000", "#FFFFFF"))
+with st.expander("Losses & Goals", expanded=False):
+    st.subheader("Losses & Goals Relation")
+    losses_goals_data = df[["Season", "Losses", "Goals"]]
+    st.line_chart(losses_goals_data.set_index("Season"), color=("#FF0000", "#FFFFFF"))
+    
