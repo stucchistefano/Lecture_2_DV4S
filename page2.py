@@ -131,7 +131,7 @@ with st.expander("Losses & Goals", expanded=False):
     st.line_chart(losses_goals_data.set_index("Season"), color=("#FF0000", "#FFFFFF"))
     
 
-
+"""
 # Secrets of Streamlit
 st.subheader("Secrets")
 # We can recall the secret info with the method "st.secrets()", which works as a dictionary
@@ -147,3 +147,25 @@ st.write("The password is: ", password)
 # Accessing more and tree-organized secret information
 secret_psw = st.secret.further_secrets.secret_username # With the "." notation we could move on in the tree of the secret info
 st.write("The secret password is: ", secret_psw)
+"""
+
+# Connection to Google Sheet
+from streamlit_gsheets import GSheetsConnection
+# Object related to the connection
+gconn = st.connection("gsheets", type=GSheetsConnection) # st.connection is defined and usable also for all other connection, not only to Google Sheet
+
+# Read the connection
+df = gconn.read(
+    worksheet=0,
+    usecols=[1,2],
+    nrows=2
+) # If we do not put anything in the read() brackets, we have that the program runs correctly starting from the link into the secrets
+# Before we save the data into some dataframe and then we could plot it
+st.dataframe(df)
+
+# Cose che non vanno:
+
+# Chiedi dai secrets, che non mi fa copiare
+# Chiedi cosa scrivere nei requirements
+# Chiedere come killare e far ripartire il tutto (streamlit run streamlit_app.py)
+
