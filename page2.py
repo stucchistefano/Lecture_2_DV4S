@@ -175,10 +175,20 @@ df.to_csv(filename2save, index=False) # Effective saving in .csv file, with "ind
 st.success("File Saved!")
 
 
+# Additional components
+# iframe web page
+st.subheader("iframe")
+st.write("Use of iframe")
+import streamlit.components.v1 as components
 
-# Cose che non vanno:
+# Embed fantacalcio web page
+components.iframe("https://www.fantacalcio.it/", height=500, scrolling=True)
+# The "scrolling" component should be used to allow the scrolling
 
-# Chiedi dai secrets, che non mi fa copiare
-# Chiedi cosa scrivere nei requirements
-# Chiedere come killare e far ripartire il tutto (streamlit run streamlit_app.py)
-
+# VEDI SUE SOLUZIONI DA QUI IN POI
+# HTML components
+# With the method "components.html(...)", with an html code that define the web components that it represented by a Figma like button
+# These buttons, if implemented with html, could not be used to "function" so to remind and report to some actions or pages as st.button() ones
+# The "st.markdown(...)" is the components that allows us to match the deisgned html buttons with the st.button() abilities and the streamlit functioning
+# We could link a callback function correlated with the st.button() components (that are recalled when the button is pressed) --> We could made it by defining the function and then recalling it in/when the button is clicked
+# Then, after having placed the st.button(), we could place the "st.markdown()" method that is able to change the style of the component of streamlit before made (not spend too much time to change streamlit components)
