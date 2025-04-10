@@ -138,3 +138,12 @@ st.subheader("Secrets")
 username = st.secrets["username"]
 # We can write it at screen
 st.write("The username is: ", username)
+
+import os
+# To get information not from the secret file, but from the "operating system (os)"
+password = os.environ["password"]
+st.write("The password is: ", password)
+
+# Accessing more and tree-organized secret information
+secret_psw = st.secret.further_secrets.secret_username # With the "." notation we could move on in the tree of the secret info
+st.write("The secret password is: ", secret_psw)
