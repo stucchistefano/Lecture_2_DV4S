@@ -156,12 +156,24 @@ gconn = st.connection("gsheets", type=GSheetsConnection) # st.connection is defi
 
 # Read the connection
 df = gconn.read(
-    worksheet=0,
-    usecols=[1,2],
-    nrows=2
+    #worksheet=0, # To decide which sheet to read
+    #usecols=[1,2], # To choose the columns and the rows to read
+    #nrows=2
 ) # If we do not put anything in the read() brackets, we have that the program runs correctly starting from the link into the secrets
 # Before we save the data into some dataframe and then we could plot it
 st.dataframe(df)
+
+# We need to use a proper function to read an excel function
+# We have limited space in the repository of github (it is better to link to some data online)
+# We can create a file and connect it to some online spaces
+import os
+
+# To extract the current working directory (CWD)
+cwd = os.getcwd()
+filename2save = os.path.join(cwd, "data2save.csv") # Saving of the file into a .csv file, with this name
+df.to_csv(filename2save) # Effective saving in .csv file
+st.success("File Saved!")
+
 
 # Cose che non vanno:
 
