@@ -25,3 +25,6 @@ with st.sidebar:
     )
 
 # The key parameters are able to save the information in the sessions state that we are running
+
+# We need to run the pages that we are recalling with the navigation, with this command
+pg.run()
