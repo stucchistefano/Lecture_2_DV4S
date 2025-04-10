@@ -28,3 +28,4 @@ with st.sidebar:
 
 # We need to run the pages that we are recalling with the navigation, with this command
 pg.run()
+# The command "page-run" ("pg.run()"") should/must be put in the main page (the streamlit.app one), maybe where a sidebar is present (to navigate within pages)
