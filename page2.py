@@ -171,8 +171,9 @@ import os
 # To extract the current working directory (CWD)
 cwd = os.getcwd()
 filename2save = os.path.join(cwd, "data2save.csv") # Saving of the file into a .csv file, with this name
-df.to_csv(filename2save) # Effective saving in .csv file
+df.to_csv(filename2save, index=False) # Effective saving in .csv file, with "index=False" to do not save also the indexes of the dataframe into the .csv format
 st.success("File Saved!")
+
 
 
 # Cose che non vanno:
