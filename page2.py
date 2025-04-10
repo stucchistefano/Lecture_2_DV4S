@@ -130,3 +130,11 @@ with st.expander("Losses & Goals", expanded=False):
     losses_goals_data = df[["Season", "Losses", "Goals"]]
     st.line_chart(losses_goals_data.set_index("Season"), color=("#FF0000", "#FFFFFF"))
     
+
+
+# Secrets of Streamlit
+st.subheader("Secrets")
+# We can recall the secret info with the method "st.secrets()", which works as a dictionary
+username = st.secrets["username"]
+# We can write it at screen
+st.write("The username is: ", username)
